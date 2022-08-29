@@ -1,6 +1,6 @@
 ;; 找到window, 根据window取得buffer
 ;; 根据window设置buffer
-(defun foo ()
+(defun swap-two-window ()
          (interactive)
          (let* ((this (selected-window))
                 (other (next-window))
