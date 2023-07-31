@@ -1,25 +1,25 @@
-#+TITLE: MinGW-w64 »·¾³±àÒëGNU Emacs 29.1
+#+TITLE: MinGW-w64 ç¯å¢ƒç¼–è¯‘GNU Emacs 29.1
 #+DATE: 2023-7-31 21:44:57
 #+AUTHOR: kunge lee
 #+EMAIL: kunge.lee@gmail.com
 
-* Ê¹ÓÃMSYS2/MinGW-w64»·¾³±àÒëGNU Emacs
+* ä½¿ç”¨MSYS2/MinGW-w64ç¯å¢ƒç¼–è¯‘GNU Emacs
 
-** ÏÂÔØ https://www.msys2.org/
+** ä¸‹è½½ https://www.msys2.org/
 
-** °²×° C/C++ ±ØÒªµÄÈí¼ş¹¤¾ß
+** å®‰è£… C/C++ å¿…è¦çš„è½¯ä»¶å·¥å…·
 #+begin_src shell
 pacman -Syu
 pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb make mingw-w64-x86_64-clang mingw-w64-x86_64-clang-tools-extra
 #+end_src
 
-** ÉèÖÃ»·¾³±äÁ¿ £¨ÏµÍ³ path)
+** è®¾ç½®ç¯å¢ƒå˜é‡ ï¼ˆç³»ç»Ÿ path)
 #+begin_src sh
 C:\msys64\mingw64\bin
 C:\msys64\usr\bin
 #+end_src
 
-** °²×°ÒÀÀµ
+** å®‰è£…ä¾èµ–
 #+begin_src shell
 pacman -S base-devel mingw-w64-x86_64-toolchain \
 mingw-w64-x86_64-xpm-nox mingw-w64-x86_64-libtiff \
@@ -29,7 +29,7 @@ mingw-w64-x86_64-libxml2 mingw-w64-x86_64-gnutls
 #+end_src
 
 
-** ±àÒë
+** ç¼–è¯‘
 #+begin_src shell
 ./autogen.sh
 PKG_CONFIG_PATH=/mingw64/lib/pkgconfig ./configure --host=x86_64-w64-mingw32 \
@@ -37,17 +37,17 @@ PKG_CONFIG_PATH=/mingw64/lib/pkgconfig ./configure --host=x86_64-w64-mingw32 \
 --with-jpeg --with-xpm --with-png --with-tiff --with-rsvg --with-xml2 \
 --with-gnutls --without-imagemagick
 make
-# ¼ÙÉè°²×°ÔÚ d:\emacs-29.1-src ÏÂÃæ
+# å‡è®¾å®‰è£…åœ¨ d:\emacs-29.1-src ä¸‹é¢
 make install prefix=/d/emacs-29.1-src
 #+end_src
 
 
-ÔËĞĞ d:\emacs-29.1-src\runemacs.exe
+è¿è¡Œ d:\emacs-29.1-src\runemacs.exe
 
 
-** ²Î¿¼Á´½Ó
-  * [[https://book.emacs-china.org/#orgd38d28c][°²×° mysys2 ¼° C/C++ ±ØÒªµÄÈí¼ş¹¤¾ß]]
+** å‚è€ƒé“¾æ¥
+  * [[https://book.emacs-china.org/#orgd38d28c][å®‰è£… mysys2 åŠ C/C++ å¿…è¦çš„è½¯ä»¶å·¥å…·]]
   * [[http://mirrors.ustc.edu.cn/gnu/emacs/][Emacs Source Code]]
-  * [[https://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline/][°²×°²Î¿¼Á´½Ó]]
+  * [[https://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline/][ç¼–è¯‘å‚è€ƒé“¾æ¥]]
   
 
