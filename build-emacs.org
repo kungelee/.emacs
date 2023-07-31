@@ -42,7 +42,7 @@ make install prefix=/d/emacs-29.1-src
 #+end_src
 
 
-运行 d:\emacs-29.1-src\runemacs.exe
+运行 D:\emacs-29.1-src\bin\runemacs.exe
 
 
 ** 参考链接
