@@ -1,0 +1,53 @@
+#+TITLE: MinGW-w64 环境编译GNU Emacs 29.1
+#+DATE: 2023-7-31 21:44:57
+#+AUTHOR: kunge lee
+#+EMAIL: kunge.lee@gmail.com
+
+* 使用MSYS2/MinGW-w64环境编译GNU Emacs
+
+** 下载 https://www.msys2.org/
+
+** 安装 C/C++ 必要的软件工具
+#+begin_src shell
+pacman -Syu
+pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb make mingw-w64-x86_64-clang mingw-w64-x86_64-clang-tools-extra
+#+end_src
+
+** 设置环境变量 （系统 path)
+#+begin_src sh
+C:\msys64\mingw64\bin
+C:\msys64\usr\bin
+#+end_src
+
+** 安装依赖
+#+begin_src shell
+pacman -S base-devel mingw-w64-x86_64-toolchain \
+mingw-w64-x86_64-xpm-nox mingw-w64-x86_64-libtiff \
+mingw-w64-x86_64-giflib mingw-w64-x86_64-libpng \
+mingw-w64-x86_64-libjpeg-turbo mingw-w64-x86_64-librsvg \
+mingw-w64-x86_64-libxml2 mingw-w64-x86_64-gnutls
+#+end_src
+
+
+** 编译
+#+begin_src shell
+./autogen.sh
+PKG_CONFIG_PATH=/mingw64/lib/pkgconfig ./configure --host=x86_64-w64-mingw32 \
+--target=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --with-wide-int \
+--with-jpeg --with-xpm --with-png --with-tiff --with-rsvg --with-xml2 \
+--with-gnutls --without-imagemagick
+make
+# 假设安装在 d:\emacs-29.1-src 下面
+make install prefix=/d/emacs-29.1-src
+#+end_src
+
+
+运行 d:\emacs-29.1-src\runemacs.exe
+
+
+** 参考链接
+  * [[https://book.emacs-china.org/#orgd38d28c][安装 mysys2 及 C/C++ 必要的软件工具]]
+  * [[http://mirrors.ustc.edu.cn/gnu/emacs/][Emacs Source Code]]
+  * [[https://chriszheng.science/2015/03/19/Chinese-version-of-Emacs-building-guideline/][安装参考链接]]
+  
+
